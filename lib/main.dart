@@ -146,33 +146,90 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 SizedBox(height: 40),
-                Container(
-                  height: 50,
-                  child: Material(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.green,
-                    elevation: 7.0,
-                    child: InkWell(
-                      customBorder: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      onTap: () {},
-                      child: Center(
-                        child: Text(
-                          'LOGIN',
-                          style: GoogleFonts.montserrat(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                CustomButton(
+                  backColor: Colors.green,
+                  foreColor: Colors.white,
+                  text: 'LOGIN',
+                ),
+                SizedBox(height: 20),
+                CustomButton(
+                  backColor: Colors.white,
+                  foreColor: Colors.black,
+                  text: 'Login with Facebook',
+                  iconData: Icons.facebook,
+                  isBorder: true,
                 ),
               ],
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  final Color backColor;
+  final Color foreColor;
+  final String text;
+  final bool? isBorder;
+  final IconData? iconData;
+  const CustomButton({
+    Key? key,
+    required this.backColor,
+    required this.foreColor,
+    required this.text,
+    this.iconData,
+    this.isBorder = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50,
+      decoration: BoxDecoration(
+        border: isBorder! ? Border.all(width: 2) : null,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Material(
+        borderRadius: BorderRadius.circular(20),
+        color: backColor,
+        elevation: 7.0,
+        child: InkWell(
+          customBorder: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          onTap: () {},
+          child: Center(
+            child: iconData == null
+                ? Text(
+                    text,
+                    style: GoogleFonts.montserrat(
+                      color: foreColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )
+                : Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        iconData,
+                        color: foreColor,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        text,
+                        style: GoogleFonts.montserrat(
+                          color: foreColor,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      )
+                    ],
+                  ),
+          ),
+        ),
       ),
     );
   }
