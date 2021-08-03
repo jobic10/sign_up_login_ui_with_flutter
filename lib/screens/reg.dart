@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -104,6 +105,10 @@ class _RegScreenState extends State<RegScreen> {
                       ),
                       TextSpan(
                         text: 'Login',
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Navigator.of(context).pop();
+                          },
                         style: GoogleFonts.montserrat(
                           color: Colors.green,
                           decoration: TextDecoration.underline,
