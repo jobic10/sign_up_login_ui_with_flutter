@@ -46,13 +46,15 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             child: Stack(
               children: [
                 Container(
-                  padding: EdgeInsets.fromLTRB(35, 110, 0, 0),
+                  padding: EdgeInsets.fromLTRB(15, 110, 0, 0),
                   child: Text(
                     'Hello',
                     style: GoogleFonts.averiaLibre(
@@ -62,8 +64,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 65),
-                  padding: EdgeInsets.fromLTRB(35, 110, 0, 0),
+                  margin: EdgeInsets.only(top: 165),
+                  padding: EdgeInsets.fromLTRB(15, 110, 0, 0),
                   child: RichText(
                     text: TextSpan(
                       children: [
@@ -86,6 +88,42 @@ class _LoginScreenState extends State<LoginScreen> {
                       ],
                     ),
                   ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(
+              top: 35,
+              left: 20,
+              right: 20,
+            ),
+            child: Column(
+              children: [
+                TextField(
+                  decoration: InputDecoration(
+                    labelText: 'EMAIL',
+                    labelStyle: GoogleFonts.montserrat(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey,
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.green),
+                    ),
+                  ),
+                ),
+                TextField(
+                  decoration: InputDecoration(
+                    labelText: 'PASSWORD',
+                    labelStyle: GoogleFonts.montserrat(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey,
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.green),
+                    ),
+                  ),
+                  obscureText: true,
                 ),
               ],
             ),
