@@ -156,9 +156,32 @@ class _LoginScreenState extends State<LoginScreen> {
                   backColor: Colors.white,
                   foreColor: Colors.black,
                   text: 'Login with Facebook',
-                  iconData: Icons.facebook,
+                  iconData: Icons.facebook_sharp,
                   isBorder: true,
                 ),
+                SizedBox(
+                  height: 70,
+                ),
+                RichText(
+                  text: TextSpan(
+                    style: GoogleFonts.montserrat(
+                      color: Colors.black,
+                      fontSize: 14,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: 'New to spotify? ',
+                      ),
+                      TextSpan(
+                        text: 'Register',
+                        style: GoogleFonts.montserrat(
+                          color: Colors.green,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
           ),
@@ -186,7 +209,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
+      height: 60,
       decoration: BoxDecoration(
         border: isBorder! ? Border.all(width: 2) : null,
         borderRadius: BorderRadius.circular(20),
