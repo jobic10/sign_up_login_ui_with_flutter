@@ -64,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 165),
+                  margin: EdgeInsets.only(top: 65),
                   padding: EdgeInsets.fromLTRB(15, 110, 0, 0),
                   child: RichText(
                     text: TextSpan(
@@ -112,6 +112,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: 20,
+                ),
                 TextField(
                   decoration: InputDecoration(
                     labelText: 'PASSWORD',
@@ -125,6 +128,41 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   obscureText: true,
                 ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  alignment: Alignment(1, 0),
+                  padding: EdgeInsets.only(top: 15, left: 20),
+                  child: InkWell(
+                    child: Text(
+                      'Forgot Password',
+                      style: GoogleFonts.montserrat(
+                        color: Colors.green,
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 40),
+                Container(
+                  height: 50,
+                  child: Material(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.green,
+                    elevation: 7.0,
+                    child: Center(
+                      child: Text(
+                        'LOGIN',
+                        style: GoogleFonts.montserrat(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                )
               ],
             ),
           ),
