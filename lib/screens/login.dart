@@ -112,10 +112,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 SizedBox(height: 40),
                 CustomButton(
-                  backColor: Colors.green,
-                  foreColor: Colors.white,
-                  text: 'LOGIN',
-                ),
+                    backColor: Colors.green,
+                    foreColor: Colors.white,
+                    text: 'LOGIN',
+                    onTap: () {
+                      Navigator.of(context).pushNamed('/profile');
+                    }),
                 SizedBox(height: 20),
                 CustomButton(
                   backColor: Colors.white,
@@ -166,12 +168,14 @@ class CustomButton extends StatelessWidget {
   final String text;
   final bool? isBorder;
   final IconData? iconData;
+  final VoidCallback? onTap;
   const CustomButton({
     Key? key,
     required this.backColor,
     required this.foreColor,
     required this.text,
     this.iconData,
+    this.onTap,
     this.isBorder = false,
   }) : super(key: key);
 
@@ -191,7 +195,7 @@ class CustomButton extends StatelessWidget {
           customBorder: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
           ),
-          onTap: () {},
+          onTap: onTap,
           child: Center(
             child: iconData == null
                 ? Text(
