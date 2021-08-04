@@ -12,115 +12,118 @@ class _RegScreenState extends State<RegScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: EdgeInsets.fromLTRB(15, 110, 0, 0),
-            child: Text(
-              'SIGN UP',
-              style: GoogleFonts.averiaLibre(
-                fontSize: 80,
-                fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              padding: EdgeInsets.fromLTRB(15, 110, 0, 0),
+              child: Text(
+                'SIGN UP',
+                style: GoogleFonts.averiaLibre(
+                  fontSize: 80,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-          ),
-          Container(
-            padding: EdgeInsets.only(
-              top: 35,
-              left: 20,
-              right: 20,
-            ),
-            child: Column(
-              children: [
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: 'FIRST NAME',
-                    labelStyle: GoogleFonts.montserrat(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey,
-                    ),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.green),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: 'EMAIL',
-                    labelStyle: GoogleFonts.montserrat(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey,
-                    ),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.green),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: 'PASSWORD',
-                    labelStyle: GoogleFonts.montserrat(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey,
-                    ),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.green),
-                    ),
-                  ),
-                  obscureText: true,
-                ),
-                SizedBox(height: 40),
-                CustomButton(
-                  backColor: Colors.green,
-                  foreColor: Colors.white,
-                  text: 'SIGN UP',
-                ),
-                SizedBox(height: 20),
-                CustomButton(
-                  backColor: Colors.white,
-                  foreColor: Colors.black,
-                  text: 'Sign up with Facebook',
-                  iconData: Icons.facebook_sharp,
-                  isBorder: true,
-                ),
-                SizedBox(
-                  height: 70,
-                ),
-                RichText(
-                  text: TextSpan(
-                    style: GoogleFonts.montserrat(
-                      color: Colors.black,
-                      fontSize: 14,
-                    ),
-                    children: [
-                      TextSpan(
-                        text: 'Already a member? ',
+            Container(
+              padding: EdgeInsets.only(
+                top: 35,
+                left: 20,
+                right: 20,
+              ),
+              child: Column(
+                children: [
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: 'FIRST NAME',
+                      labelStyle: GoogleFonts.montserrat(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey,
                       ),
-                      TextSpan(
-                        text: 'Login',
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            Navigator.of(context).pop();
-                          },
-                        style: GoogleFonts.montserrat(
-                          color: Colors.green,
-                          decoration: TextDecoration.underline,
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.green),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: 'EMAIL',
+                      labelStyle: GoogleFonts.montserrat(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey,
+                      ),
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.green),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: 'PASSWORD',
+                      labelStyle: GoogleFonts.montserrat(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey,
+                      ),
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.green),
+                      ),
+                    ),
+                    obscureText: true,
+                  ),
+                  SizedBox(height: 40),
+                  CustomButton(
+                    backColor: Colors.green,
+                    foreColor: Colors.white,
+                    text: 'SIGN UP',
+                  ),
+                  SizedBox(height: 20),
+                  CustomButton(
+                    backColor: Colors.white,
+                    foreColor: Colors.black,
+                    text: 'Sign up with Facebook',
+                    iconData: Icons.facebook_sharp,
+                    isBorder: true,
+                  ),
+                  SizedBox(
+                    height: 70,
+                  ),
+                  RichText(
+                    text: TextSpan(
+                      style: GoogleFonts.montserrat(
+                        color: Colors.black,
+                        fontSize: 14,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: 'Already a member? ',
                         ),
-                      ),
-                    ],
-                  ),
-                )
-              ],
+                        TextSpan(
+                          text: 'Login',
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.of(context).pop();
+                            },
+                          style: GoogleFonts.montserrat(
+                            color: Colors.green,
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
-          ),
-        ],
+            SizedBox(height: 30),
+          ],
+        ),
       ),
     );
   }

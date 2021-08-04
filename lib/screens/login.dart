@@ -12,151 +12,154 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            child: Stack(
-              children: [
-                Container(
-                  padding: EdgeInsets.fromLTRB(15, 110, 0, 0),
-                  child: Text(
-                    'Hello',
-                    style: GoogleFonts.averiaLibre(
-                      fontSize: 80,
-                      fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              child: Stack(
+                children: [
+                  Container(
+                    padding: EdgeInsets.fromLTRB(15, 110, 0, 0),
+                    child: Text(
+                      'Hello',
+                      style: GoogleFonts.averiaLibre(
+                        fontSize: 80,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 65),
-                  padding: EdgeInsets.fromLTRB(15, 110, 0, 0),
-                  child: RichText(
+                  Container(
+                    margin: EdgeInsets.only(top: 65),
+                    padding: EdgeInsets.fromLTRB(15, 110, 0, 0),
+                    child: RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'There',
+                            style: GoogleFonts.averiaLibre(
+                              fontSize: 80,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          TextSpan(
+                            text: '\u{1F7E2}',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              textBaseline: TextBaseline.ideographic,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.only(
+                top: 35,
+                left: 20,
+                right: 20,
+              ),
+              child: Column(
+                children: [
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: 'EMAIL',
+                      labelStyle: GoogleFonts.montserrat(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey,
+                      ),
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.green),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: 'PASSWORD',
+                      labelStyle: GoogleFonts.montserrat(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey,
+                      ),
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.green),
+                      ),
+                    ),
+                    obscureText: true,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    alignment: Alignment(1, 0),
+                    padding: EdgeInsets.only(top: 15, left: 20),
+                    child: InkWell(
+                      child: Text(
+                        'Forgot Password',
+                        style: GoogleFonts.montserrat(
+                          color: Colors.green,
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 40),
+                  CustomButton(
+                      backColor: Colors.green,
+                      foreColor: Colors.white,
+                      text: 'LOGIN',
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/profile');
+                      }),
+                  SizedBox(height: 20),
+                  CustomButton(
+                    backColor: Colors.white,
+                    foreColor: Colors.black,
+                    text: 'Login with Facebook',
+                    iconData: Icons.facebook_sharp,
+                    isBorder: true,
+                  ),
+                  SizedBox(
+                    height: 70,
+                  ),
+                  RichText(
                     text: TextSpan(
+                      style: GoogleFonts.montserrat(
+                        color: Colors.black,
+                        fontSize: 14,
+                      ),
                       children: [
                         TextSpan(
-                          text: 'There',
-                          style: GoogleFonts.averiaLibre(
-                            fontSize: 80,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          text: 'New to spotify? ',
                         ),
                         TextSpan(
-                          text: '\u{1F7E2}',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            textBaseline: TextBaseline.ideographic,
+                          text: 'Register',
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.of(context).pushNamed('/reg');
+                            },
+                          style: GoogleFonts.montserrat(
+                            color: Colors.green,
+                            decoration: TextDecoration.underline,
                           ),
                         ),
                       ],
                     ),
-                  ),
-                ),
-              ],
+                  )
+                ],
+              ),
             ),
-          ),
-          Container(
-            padding: EdgeInsets.only(
-              top: 35,
-              left: 20,
-              right: 20,
-            ),
-            child: Column(
-              children: [
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: 'EMAIL',
-                    labelStyle: GoogleFonts.montserrat(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey,
-                    ),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.green),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: 'PASSWORD',
-                    labelStyle: GoogleFonts.montserrat(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey,
-                    ),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.green),
-                    ),
-                  ),
-                  obscureText: true,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  alignment: Alignment(1, 0),
-                  padding: EdgeInsets.only(top: 15, left: 20),
-                  child: InkWell(
-                    child: Text(
-                      'Forgot Password',
-                      style: GoogleFonts.montserrat(
-                        color: Colors.green,
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.underline,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 40),
-                CustomButton(
-                    backColor: Colors.green,
-                    foreColor: Colors.white,
-                    text: 'LOGIN',
-                    onTap: () {
-                      Navigator.of(context).pushNamed('/profile');
-                    }),
-                SizedBox(height: 20),
-                CustomButton(
-                  backColor: Colors.white,
-                  foreColor: Colors.black,
-                  text: 'Login with Facebook',
-                  iconData: Icons.facebook_sharp,
-                  isBorder: true,
-                ),
-                SizedBox(
-                  height: 70,
-                ),
-                RichText(
-                  text: TextSpan(
-                    style: GoogleFonts.montserrat(
-                      color: Colors.black,
-                      fontSize: 14,
-                    ),
-                    children: [
-                      TextSpan(
-                        text: 'New to spotify? ',
-                      ),
-                      TextSpan(
-                        text: 'Register',
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            Navigator.of(context).pushNamed('/reg');
-                          },
-                        style: GoogleFonts.montserrat(
-                          color: Colors.green,
-                          decoration: TextDecoration.underline,
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-        ],
+            SizedBox(height: 30),
+          ],
+        ),
       ),
     );
   }
