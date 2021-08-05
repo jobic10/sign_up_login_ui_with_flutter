@@ -21,7 +21,8 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 Positioned(
                   bottom: 0,
-                  right: 110,
+                  right: MediaQuery.of(context).size.width / 2 - 88,
+                  left: MediaQuery.of(context).size.width / 2 - 88,
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(120),
@@ -109,7 +110,10 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
               ),
-            )
+            ),
+            SizedBox(
+              height: 40,
+            ),
           ],
         ),
       ),
